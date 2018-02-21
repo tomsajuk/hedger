@@ -8,7 +8,6 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="sponsor/pater.css" />
 		<script>
 			document.documentElement.className = 'js';
 			var supportsCssVars = function() {
@@ -49,52 +48,15 @@
 				<header class="codrops-header">
 					<nav class="demos">
 						<a class="demo" href="../index.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>HOME</a>
-						<!-- <a class="demo" href="../features.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>FUND STRUCTURE</a>
-						<a class="demo" href="../Platform/index.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>PLATFORM</a> -->
-
-							<a class="demo demo--current" href="index.html"><svg class="decoshape" preserveAspectRatio="none"><use xlink:href="#shape-demo"></use></svg>PAY</a>
+						<a class="demo" href="../roadmap/index.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>ROADMAP</a>
+						<a class="demo demo--current" href="index.html"><svg class="decoshape" preserveAspectRatio="none"><use xlink:href="#shape-demo"></use></svg>PAY</a>
 					</nav>
 
 				</header>
 
 				<div class="deco deco--title">A Smart Blocks Product </div>
 			</div>
-			<div class="content-wrap">
-				<div class="content content--layout content--layout-1">
-					<img class="content__img" src="img/icod.gif" alt="Some image" />
-					<h3 class="content__title">White Paper Launch</h3>
-					<p class="content__author">Stage I</p>
-					<p class="content__desc">Launch of the official whitepaper</p>
-					<a href="#" class="content__link">Scroll down and discover what we have to offer</a>
-				</div>
-			</div>
-			<div class="content-wrap">
-				<div class="content content--layout content--layout-2">
-					<img class="content__img" src="img/icol.gif" alt="Some image" />
-					<h3 class="content__title">ICO Details</h3>
-					<p class="content__author">Stage II</p>
-					<p class="content__desc">Details of the ICO will be published.</p>
-					<a href="#" class="content__link">Know how to participate</a>
-				</div>
-			</div>
-			<div class="content-wrap">
-				<div class="content content--layout content--layout-3">
-					<img class="content__img" src="img/icoll.gif" alt="Some image" />
-					<h3 class="content__title">Launch of ICO</h3>
-					<p class="content__author">Stage III</p>
-					<p class="content__desc">Join the ICO and become a part of the future of mutal funds</p>
-					<a href="#" class="content__link">Become a part of Hedger</a>
-				</div>
-			</div>
-			<div class="content-wrap">
-				<div class="content content--layout content--layout-4">
-					<img class="content__img" src="img/tech2.gif" alt="Some image" />
-					<h3 class="content__title">Tech Launch</h3>
-					<p class="content__author">Stage IV</p>
-					<p class="content__desc">Publications of all the underlying smartcontracts</p>
-					<a href="#" class="content__link">Know the tech</a>
-				</div>
-			</div>
+			
 			<div class="content-wrap">
 				<div class="content content--layout content--layout-1">
 					<img class="content__img" src="img/launch.gif" alt="Some image" />
@@ -109,6 +71,28 @@
 				<h1>Invest in Hedger || Relax and get amazing returns</h1>
 				<h4> Become a Part of the Hedger</h4>
 					</section>
+
+<!-- ********** BEGINNING OF PAYMENT FORM***********-->
+			<div class="content-wrap">
+			<div class="content content--layout content--layout-1">
+			<form action="http://localhost:3000/process/" method="POST">
+			<!-- Note that the amount is in paise = 50 INR -->
+				<script
+				    src="https://checkout.razorpay.com/v1/checkout.js"
+				    data-key="rzp_test_PMjmTpjCj6YGxG"
+				    data-amount="5050"
+				    data-buttontext="Pay with Razorpay"
+				    data-name="Merchant Name"
+				    data-description="Purchase Description"
+				    data-image="https://your-awesome-site.com/your_logo.jpg"
+				    data-prefill.name="Harshil Mathur"
+				    data-prefill.email="support@razorpay.com"
+				    data-theme.color="#F37254"
+				></script>
+				<input type="hidden" value="Hidden Element" name="hidden">
+			</form>
+			</div>
+			</div>
 		</main>
 		<script src="js/imagesloaded.pkgd.min.js"></script>
 		<script src="js/anime.min.js"></script>
