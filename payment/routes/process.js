@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 
 var KEY_ID = process.env.KEY_ID;
-var SECRET_KEY = process.env.SECRET_KEY;
+var SECRET_KEY = process.env.SECRET_ID;
 
 
 router.post('/',function(req, res, next) {
