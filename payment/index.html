@@ -1,128 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Payment</title>
-		<link rel="shortcut icon" href="favicon.ico">
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<script>
-			document.documentElement.className = 'js';
-			var supportsCssVars = function() {
-				var s = document.createElement('style'),
-				support;
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Payment</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<script>
+	document.documentElement.className = 'js';
+	var supportsCssVars = function() {
+		var s = document.createElement('style'),
+		support;
 
-				s.innerHTML = "root: { --tmp-var: bold; }";
-				document.head.appendChild(s);
-				support = !!(window.CSS && window.CSS.supports && window.CSS.supports('font-weight', 'var(--tmp-var)'));
-				s.parentNode.removeChild(s);
-				return support;
-			}
-			if (!supportsCssVars()) alert('Please view this demo in a modern browser that supports CSS Variables.')
-		</script>
-	</head>
-	<body class="demo-2 loading">
-		<svg class="hidden">
-			<symbol id="icon-arrow" viewBox="0 0 24 24">
-				<title>arrow</title>
-				<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
-			</symbol>
-			<symbol id="icon-drop" viewBox="0 0 24 24">
-				<title>drop</title>
-				<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
-			</symbol>
-			<symbol id="shape-demo" viewBox="0 0 200 100">
-				<title>shape demo</title>
-				<path d="M 6.144,74.1 C 20.4,107.4 70.13,94.33 94.22,95.74 121.3,97.41 130.8,101.1 154.7,99.38 178.6,97.72 201.9,78.95 199.4,46.86 197.1,14.96 174.9,4.781 161.4,1.827 147.9,-1.128 119.8,8.284 105.6,8.766 85.34,9.449 81.91,7.628 51.08,2.334 17.26,-3.482 -8.105,40.84 6.144,74.1 Z" />
-			</symbol>
-		</svg>
-		<main>
-			<div class="morph-wrap">
-				<svg class="morph" width="1400" height="770" viewBox="0 0 1400 770">
-					<path d="M 262.9,252.2 C 210.1,338.2 212.6,487.6 288.8,553.9 372.2,626.5 511.2,517.8 620.3,536.3 750.6,558.4 860.3,723 987.3,686.5 1089,657.3 1168,534.7 1173,429.2 1178,313.7 1096,189.1 995.1,130.7 852.1,47.07 658.8,78.95 498.1,119.2 410.7,141.1 322.6,154.8 262.9,252.2 Z"/>
-				</svg>
-			</div>
+		s.innerHTML = "root: { --tmp-var: bold; }";
+		document.head.appendChild(s);
+		support = !!(window.CSS && window.CSS.supports && window.CSS.supports('font-weight', 'var(--tmp-var)'));
+		s.parentNode.removeChild(s);
+		return support;
+	}
+	if (!supportsCssVars()) alert('Please view this demo in a modern browser that supports CSS Variables.')
+	</script>
+</head>
+<body class="demo-2 loading">
+	<svg class="hidden">
+		<symbol id="icon-arrow" viewBox="0 0 24 24">
+			<title>arrow</title>
+			<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
+		</symbol>
+		<symbol id="icon-drop" viewBox="0 0 24 24">
+			<title>drop</title>
+			<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
+		</symbol>
+		<symbol id="shape-demo" viewBox="0 0 200 100">
+			<title>shape demo</title>
+			<path d="M 6.144,74.1 C 20.4,107.4 70.13,94.33 94.22,95.74 121.3,97.41 130.8,101.1 154.7,99.38 178.6,97.72 201.9,78.95 199.4,46.86 197.1,14.96 174.9,4.781 161.4,1.827 147.9,-1.128 119.8,8.284 105.6,8.766 85.34,9.449 81.91,7.628 51.08,2.334 17.26,-3.482 -8.105,40.84 6.144,74.1 Z" />
+		</symbol>
+	</svg>
+	<main>
+		<div class="morph-wrap">
+			<svg class="morph" width="1400" height="770" viewBox="0 0 1400 770">
+				<path d="M 262.9,252.2 C 210.1,338.2 212.6,487.6 288.8,553.9 372.2,626.5 511.2,517.8 620.3,536.3 750.6,558.4 860.3,723 987.3,686.5 1089,657.3 1168,534.7 1173,429.2 1178,313.7 1096,189.1 995.1,130.7 852.1,47.07 658.8,78.95 498.1,119.2 410.7,141.1 322.6,154.8 262.9,252.2 Z"/>
+			</svg>
+		</div>
 
-			<!--Navigation bar-->
-			<div class="content content--fixed">
-				<header class="codrops-header">
-					<nav class="demos">
-						<a class="demo" href="../index.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>HOME</a>
-						<a class="demo" href="../roadmap/index.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>ROADMAP</a>
-						<a class="demo demo--current" href="index.html"><svg class="decoshape" preserveAspectRatio="none"><use xlink:href="#shape-demo"></use></svg>PAY</a>
-					</nav>
+		<!--Navigation bar-->
+		<div class="content content--fixed">
+			<header class="codrops-header">
+				<nav class="demos">
+					<a class="demo" href="../index.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>HOME</a>
+					<a class="demo" href="../roadmap/index.html"><svg class="decoshape"><use xlink:href="#shape-demo"></use></svg>ROADMAP</a>
+					<a class="demo demo--current" href="index.html"><svg class="decoshape" preserveAspectRatio="none"><use xlink:href="#shape-demo"></use></svg>PAY</a>
+				</nav>
 
-				</header>
+			</header>
 
-				<div class="deco deco--title">A TSH Product </div>
-			</div>
-			
-			<div class="content-wrap">
-				<div class="content">
-					
-				</div>
+			<div class="deco deco--title">A TSH Product </div>
+		</div>
 
-			</div>
-			
+		<!-- Related demos -->
+		<section class="content content--related">
+			<h1>Invest in Hedger || Relax and get amazing returns</h1>
+			<h4> Become a Part of the Hedger</h4>
+			<h4>Scroll down to Start Investing</h4>
+		</section>
 
-
-			<!-- Related demos -->
-			<section class="content content--related">
-				<h1>Invest in Hedger || Relax and get amazing returns</h1>
-				<h4> Become a Part of the Hedger</h4>
-				<h4>Scroll down to Start Investing</h4>
-			</section>
-
+		<div class="content-wrap">
 			<div class="content content--layout">
-				<h2>INVEST</h2>
-					<form action="https://hedger.herokuapp.com/invest/a100" method="POST" class="content--related">
-					<h3>Amount<input type="number" name="amount"></h3>
-					<!--add script calling any amount payment-->
-
-					</form>
-					<form action="https://hedger.herokuapp.com/invest/a100" method="POST">
-					<!-- Note that the amount is in paise = 50 INR -->
-						<script
-						    src="https://checkout.razorpay.com/v1/checkout.js"
-						    data-key="rzp_test_PMjmTpjCj6YGxG"
-						    data-amount="10000"
-						    data-buttontext="100₹"
-						    data-name="Merchant Name"
-						    data-description="Purchase Description"
-						    data-image="https://your-awesome-site.com/your_logo.jpg"
-						    data-prefill.name="Harshil Mathur"
-						    data-prefill.email="support@razorpay.com"
-						    data-theme.color="#F37254"
-						></script>
-						<input type="hidden" value="Hidden Element" name="hidden">
-					</form>
-					<form action="https://hedger.herokuapp.com/invest/a200" method="POST">
-						<script
-						    src="https://checkout.razorpay.com/v1/checkout.js"
-						    data-key="rzp_test_PMjmTpjCj6YGxG"
-						    data-amount="20000"
-						    data-buttontext="200₹"
-						    data-name="Merchant Name"
-						    data-description="Purchase Description"
-						    data-image="https://your-awesome-site.com/your_logo.jpg"
-						    data-prefill.name="Harshil Mathur"
-						    data-prefill.email="support@razorpay.com"
-						    data-theme.color="#F39219"
-						></script>
-						<input type="hidden" value="Hidden Element" name="hidden">
-					</form>
-				</div>
-
-<!-- ********** BEGINNING OF PAYMENT FORM***********-->
-			<div class="content-wrap">
-				
+				<h3 class="content__title">DEPOSIT</h3>
+				<p class="content__desc">Amount</p>
+				<p class="content__link">
+					<input type="number" id="amount"/>
+					<button id="rzp-button1">Pay</button>
+				</p>
 			</div>
-		</main>
-		<script src="js/imagesloaded.pkgd.min.js"></script>
-		<script src="js/anime.min.js"></script>
-		<script src="js/scrollMonitor.js"></script>
-		<script src="js/demo2.js"></script>
-	</body>
+		</div>
+
+		<!-- ********** EndingNG OF PAYMENT FORM***********-->
+
+	</main>
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script src="js/payment.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/scrollMonitor.js"></script>
+	<script src="js/demo2.js"></script>
+</body>
 </html>
