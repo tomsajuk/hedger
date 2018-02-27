@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize1.css" />
 	<link rel="stylesheet" type="text/css" href="css/demo1.css" />
 	<link rel="stylesheet" type="text/css" href="css/component1.css" />
-	<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
 	<!--[if IE]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -36,27 +36,40 @@
 					<li><a href="../roadmap/index.html"class = "white-text">Roadmap</a></li>
 					<li class="active"><a href="#" class="white-text">Invest</a></li>
 				</ul>
+				<ul class="right hide-on-med-and-down " >
+					<li><a href="login.html" class = "white-text" id="btnLogin">Log In</a></li>
+					<li><a href="login.html" class = "white-text" id="btnSignUp">Sign Up</a></li>
+					<li class="hide" id="btnLogout"><a href="#" class="white-text">Log Out</a></li>
+				</ul>
 
 				<ul id="nav-mobile" class="side-nav ">
 					<li><a href="../index.html">Home</a></li>
 					<li><a href="../roadmap/index.html">Roadmap</a></li>
 					<li class="active"><a href="#">Invest</a></li>
+					<li ><a href="login.html" id="btnLoginM">Log In</a></li>
+					<li ><a href="login.html" id="btnSignUpM">Sign Up</a></li>
+					<li class="hide" id="btnLogoutM"><a href="#">Log Out</a></li>
 				</ul>
+
 			</div>
 		</nav>
 	</div>
 
-<div>
+<!--content investment tagsss-->
+<div >
 	<div class="container1 demo-1">
+
 		<div class="content">
-			<div id="large-header" class="large-header" >
 
-				<h3 class="center hoverable white-text">Invest in Hedger || Relax and get amazing returns</h1>
+			<div id="large-header" class="large-header" style="height:100vh">
 
-				<div class="row center main-form">
+				<h3 class="center white-text">Invest in Hedger </h3>
+				<h5 class="center white-text"> Relax and get amazing returns</h5>
 
-					<div class="row center-allign " id='formId' style="top:200vh;">
-						<form class="col s12 ">
+				<div class="row center main-form" id="investForm">
+
+					<div class="row center-allign " style="top:200vh;">
+						<form class="col s12">
 
 							<div class="row " >
 								<div class="input-field inline" style="top:-2vh;" >
@@ -80,7 +93,7 @@
 			</div>
 		</div>
 
-
+<!--footer-->
 	<footer class="page-footer black">
 		<div class="container">
 			<div class="row">
@@ -110,32 +123,16 @@
 
 
 </div>
-
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDURrjLF283phtDX0DZAhc2rPBwSgeJXVQ",
-    authDomain: "hedger-invest.firebaseapp.com",
-    databaseURL: "https://hedger-invest.firebaseio.com",
-    projectId: "hedger-invest",
-    storageBucket: "hedger-invest.appspot.com",
-    messagingSenderId: "726872548070"
-  };
-  firebase.initializeApp(config);
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
-
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="js/payment.js"></script>
 <script src="js/materialize.js"></script>
+<script src="js/account.js"></script>
 <script src="js/init.js"></script>
 <script src="js/TweenLite.min.js"></script>
 <script src="js/EasePack.min.js"></script>
 <script src="js/rAF.js"></script>
-<script src="js/demo-1.js"></script>
-
 <script src="js/main.js"></script>
 </body>
 </html>
