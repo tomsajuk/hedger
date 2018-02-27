@@ -1,331 +1,332 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css"> -->
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css"> -->
 
-		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-		  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-		<title>Hedger</title>
-		<meta name="description" content="A new blockchain based hedge fund to make investing more transparent and easy" />
-		<meta name="keywords" content="blockchain, hedge fund, investing" />
-		<meta name="author" content="Anirudh Murali , Thomas Saju Kosy" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/normalize1.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo1.css" />
-		<link rel="stylesheet" type="text/css" href="css/component1.css" />
-		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
-		<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-	</head>
-	<body>
+	<title>Hedger</title>
+	<meta name="description" content="A new blockchain based hedge fund to make investing more transparent and easy" />
+	<meta name="keywords" content="blockchain, hedge fund, investing" />
+	<meta name="author" content="Anirudh Murali , Thomas Saju Kosy" />
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/normalize1.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo1.css" />
+	<link rel="stylesheet" type="text/css" href="css/component1.css" />
+	<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
 
-		<div id="topBar" class = "navbar-fixed navigator">
-		  <nav  class="black " role="navigation">
-		    <div class="nav-wrapper fixed white-text">
-		      <a href="#!" class="brand-logo center white-text">Logo</a>
-					<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+	<div id="topBar" class = "navbar-fixed navigator">
+		<nav  class="black " role="navigation">
+			<div class="nav-wrapper fixed white-text">
+				<a href="#!" class="brand-logo center white-text">Logo</a>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
-			    <ul class="left hide-on-med-and-down " >
-		        <li class="active"><a id="navHome" class = "white-text">Home</a></li>
-		        <li><a id="navFundStructure" class = "white-text">Fund Structure</a></li>
-						<li><a id ='navPerformance' class = "white-text">Performance</a></li>
-						<li><a id='navPlatform'class = "white-text">Platform</a></li>
+				<ul class="left hide-on-med-and-down " >
+					<li class="active"><a id="navHome" class = "white-text">Home</a></li>
+					<li><a id="navFundStructure" class = "white-text">Fund Structure</a></li>
+					<li><a id ='navPerformance' class = "white-text">Performance</a></li>
+					<li><a id='navPlatform'class = "white-text">Platform</a></li>
 
-						<li><a href="roadmap/index.html"class = "white-text">Roadmap</a></li>
-						<li><a href="payment/index.html" class="white-text">Payment</a></li>
-		      </ul>
+					<li><a href="roadmap/index.html"class = "white-text">Roadmap</a></li>
+					<li><a href="invest/invest.html" class="white-text">Invest</a></li>
+				</ul>
 
-			      <ul id="nav-mobile" class="side-nav ">
-		        <li class="active"><a id="navHomeMobile" >Home</a></li>
-		        <li><a id="navFundStructureMobile">Fund Structure</a></li>
-						<li><a id ='navPerformanceMobile'>Performance</a></li>
-		        <li><a id='navPlatformMobile'>Platform</a></li>
-		        <li><a href="roadmap/index.html">Roadmap</a></li>
-		      </ul>
-		       </div>
-		  </nav>
-		</div>
-
-
-		<div class="container1 demo-1">
-
-
-
-			<div class="content">
-				<div id="large-header" class="large-header" >
-					<canvas id="demo-canvas"></canvas>
-					<h1 class="main-title hoverable ">Hedger</h1>
-
-					<div class="row center main-form">
-
-	          <div class="row center-allign " id='formId' style="top:200vh;">
-	              <form class="col s12 ">
-
-	                <div class="row " >
-	                  <div class="input-field inline" style="top:-2vh;" >
-	                    <i class="material-icons prefix">account_circle</i>
-
-	    <input id="name" type="text" class="validate">
-	    <label for="first_name">Name</label>
-	  </div>
-	         <div class="input-field inline"  style="top:-2vh;">
-
-	             <i class="material-icons prefix">email</i>
-	             <input id="email" type="email" class="validate">
-	       <label for="email" data-error="wrong" data-success="right">Email</label>
-	       </div>
-
-	     </div></form>
-</div>
-	<!-- <a id="download-button" onclick="Materialize.toast('Subscribe to Our Newsletter!', 3000, 'rounded');" class="btn-medium waves-effect waves-light teal lighten-1" style="">Get Started</a> -->
-	<button id="subscribeButton" class="btn waves-effect teal darken-2 waves-light " onclick="Materialize.toast('Subscribed to Our Newsletter!', 3000, 'rounded');" style="top:-7vh; display:none;" type="submit" name="action">Subscribe
-	    <i class="material-icons right">send</i>
-	  </button>
-
-		<div class="row center ">
-			<a id="esButton" href="docs/es.pdf" download style='display:none; top:-3vh;' class="waves-effect teal darken-2 center waves-light btn">Executive Summary</a></div>
-
-	 <a id="videoButton" style='display:none; top:-3vh;' class="waves-effect teal darken-2 center waves-light btn">video</a></div>
-
-	 </div>
-
+				<ul id="nav-mobile" class="side-nav ">
+					<li class="active"><a id="navHomeMobile" >Home</a></li>
+					<li><a id="navFundStructureMobile">Fund Structure</a></li>
+					<li><a id ='navPerformanceMobile'>Performance</a></li>
+					<li><a id='navPlatformMobile'>Platform</a></li>
+					<li><a href="roadmap/index.html">Roadmap</a></li>
+					<li><a href="invest/invest.html">Invest</a></li>
+				</ul>
+			</div>
+		</nav>
 	</div>
 
-	        </div>
+
+	<div class="container1 demo-1">
+
+
+
+		<div class="content">
+			<div id="large-header" class="large-header" >
+				<canvas id="demo-canvas"></canvas>
+				<h1 class="main-title hoverable ">Hedger</h1>
+
+				<div class="row center main-form">
+
+					<div class="row center-allign " id='formId' style="top:200vh;">
+						<form class="col s12 ">
+
+							<div class="row " >
+								<div class="input-field inline" style="top:-2vh;" >
+									<i class="material-icons prefix">account_circle</i>
+
+									<input id="name" type="text" class="validate">
+									<label for="first_name">Name</label>
+								</div>
+								<div class="input-field inline"  style="top:-2vh;">
+
+									<i class="material-icons prefix">email</i>
+									<input id="email" type="email" class="validate">
+									<label for="email" data-error="wrong" data-success="right">Email</label>
+								</div>
+
+							</div></form>
+						</div>
+						<!-- <a id="download-button" onclick="Materialize.toast('Subscribe to Our Newsletter!', 3000, 'rounded');" class="btn-medium waves-effect waves-light teal lighten-1" style="">Get Started</a> -->
+						<button id="subscribeButton" class="btn waves-effect teal darken-2 waves-light " onclick="Materialize.toast('Subscribed to Our Newsletter!', 3000, 'rounded');" style="top:-7vh; display:none;" type="submit" name="action">Subscribe
+							<i class="material-icons right">send</i>
+						</button>
+
+						<div class="row center ">
+							<a id="esButton" href="docs/es.pdf" download style='display:none; top:-3vh;' class="waves-effect teal darken-2 center waves-light btn">Executive Summary</a></div>
+
+							<a id="videoButton" style='display:none; top:-3vh;' class="waves-effect teal darken-2 center waves-light btn">video</a></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+
+				<div class = "container">
+					<div class="codrops-header">
+
+						<h1>Blockchain Based Hedger<span class="purple-text text-darken-4">Presenting the future of hedge funds</span></h1>
+					</div>
+
+
+
+
+
+
+					<div class="row hoverable  ">
+						<!-- <div class="divider"></div> -->
+						<div class="col s12 m4 black-text">
+							<div class="icon-block">
+								<h2 class="header center purple-text text-accent-4"><i class="material-icons">attach_money</i></h2>
+								<h5 class="center">Wealth Managers</h5>
+
+								<p class="light">Professional fund managers help you grow your crypto asset wealth. Expect your investments to reach the moon in no time. We promise you different profiles as per the risk you're willing to incur.</p>
+							</div>
+						</div>
+
+						<div class="col s12 m4 black-text">
+							<div class="icon-block">
+								<h2 class="header center purple-text text-accent-4"><i class="material-icons">library_books</i></h2>
+								<h5 class="center">Smart Contracts</h5>
+
+								<p class="light">Hedger, being a ERC-20 token, has support for harnessing the power of smart contracts. Thus now you can invest in trustable environment without having to worry about any form of accounting </p>
+							</div>
+						</div>
+
+						<div class="col s12 m4 black-text">
+							<div class="icon-block">
+								<h2 class="header center purple-text text-accent-4"><i class="material-icons">settings</i></h2>
+								<h5 class="center">Intelligent Bots</h5>
+
+								<p class="light">We leverage the power of technology to create wealth. Complex algorithms working 24x7 to learn and adapt to the dynamic and highly volatile crypto market.Invest, relax and enjoy the ride and watch our bots perform</p>
+							</div>
+						</div>
+
+						<div class="row center ">
+							<a id="contractButton" class="waves-effect purple accent-4 center waves-light btn">Github Repository</a></div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+				</div>
+			</div><!-- /container -->
+			<div id='fundStructure' class="black">
+				<br>
+				<br>
+				<div class="codrops-header">
+					<h1 class="white-text">Fund Structure<span class="teal-text text-darken-2">The Underlying Architecture</span></h1>
+
+					<img src="img/fundStructure.png" class="responsive-img center-allign" ></img>
+				</div>
+				<br>
+				<br>
+			</div>
+
+
+
+			<div class = "container" id="performanceData">
+				<br>
+				<br>
+				<div class="codrops-header">
+
+				</div>
+
+
+
+
+
+
+				<div class="row hoverable" >
+					<div class="col s12 m6 black-text">
+						<div class="icon-block">
+							<h2 class="header center purple-text text-accent-4"><i class="material-icons">group</i></h2>
+							<h5 class="center">Quant Platform</h5>
+
+							<p class="light">An easy to use gateway through which investors can easily invest into the fund. All investments will be executed via smart contracts, which can be studied at our github repositories. All investments will be accepted in form of Ether or/and Bitcoin based transactions and an equivalent amount of Hedger tokens will be given to the investor. The Hedger tokens are an ERC-20 protocol based tokens which will hold a value roughly equal to the NAV of the fund</p>
+						</div>
+					</div>
+
+
+					<div class="col s12 m6 black-text">
+						<div class="icon-block">
+							<h2 class="header center purple-text text-accent-4"><i class="material-icons">timeline</i></h2>
+							<h5 class="center">Transparent Performance</h5>
+
+							<p class="light">Data regarding the performance of the fund managers and bot's will be made public from time to time. The performance will be shown in the form of a graph based dashboard through which you can compare the performance of various portfolios, baskets and stratergies with the help of sleek visualizations. All data is loaded from the API of coinmarketcap and all updates are done automatically in realtime! So you can sit back and measure our performance</p>
+						</div>
+					</div>
+					<div class="row center ">
+						<a id="performanceButton" class="waves-effect purple accent-4 center waves-light btn">Performace Tab</a></div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+				<div id='platform' class="black">
+					<br>
+					<br>
+					<div class="codrops-header">
+						<h1 class="white-text">Platform<span class="teal-text text-darken-2">Discover our innovative platform</span></h1>
+
+						<img src="img/Dashboard.png" class="responsive-img center-allign" ></img>
+					</div>
+
+
+					<div class="row center ">
+						<a id="vtButton"   class="waves-effect teal darken-2 center waves-light btn">Video Tutorial</a></div>
+
+						<br>
+						<br>
+					</div>
 
 
 
 					<div class = "container">
 						<div class="codrops-header">
 
-					<h1>Blockchain Based Hedger<span class="purple-text text-darken-4">Presenting the future of hedge funds</span></h1>
-</div>
-
-
-
-
-
-
-<div class="row hoverable  ">
-	  <!-- <div class="divider"></div> -->
-	<div class="col s12 m4 black-text">
-		<div class="icon-block">
-			<h2 class="header center purple-text text-accent-4"><i class="material-icons">attach_money</i></h2>
-			<h5 class="center">Wealth Managers</h5>
-
-			<p class="light">Professional fund managers help you grow your crypto asset wealth. Expect your investments to reach the moon in no time. We promise you different profiles as per the risk you're willing to incur.</p>
-		</div>
-	</div>
-
-	<div class="col s12 m4 black-text">
-		<div class="icon-block">
-			<h2 class="header center purple-text text-accent-4"><i class="material-icons">library_books</i></h2>
-			<h5 class="center">Smart Contracts</h5>
-
-			<p class="light">Hedger, being a ERC-20 token, has support for harnessing the power of smart contracts. Thus now you can invest in trustable environment without having to worry about any form of accounting </p>
-		</div>
-	</div>
-
-	<div class="col s12 m4 black-text">
-		<div class="icon-block">
-			<h2 class="header center purple-text text-accent-4"><i class="material-icons">settings</i></h2>
-			<h5 class="center">Intelligent Bots</h5>
-
-			<p class="light">We leverage the power of technology to create wealth. Complex algorithms working 24x7 to learn and adapt to the dynamic and highly volatile crypto market.Invest, relax and enjoy the ride and watch our bots perform</p>
-		</div>
-	</div>
-
-	<div class="row center ">
- <a id="contractButton" class="waves-effect purple accent-4 center waves-light btn">Github Repository</a></div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-					</div>
-	</div><!-- /container -->
-<div id='fundStructure' class="black">
-	<br>
-	<br>
-	<div class="codrops-header">
-<h1 class="white-text">Fund Structure<span class="teal-text text-darken-2">The Underlying Architecture</span></h1>
-
-			<img src="img/fundStructure.png" class="responsive-img center-allign" ></img>
-</div>
-<br>
-<br>
-</div>
-
-
-
-<div class = "container" id="performanceData">
-	<br>
-	<br>
-	<div class="codrops-header">
-
-</div>
-
-
-
-
-
-
-<div class="row hoverable" >
-<div class="col s12 m6 black-text">
-<div class="icon-block">
-<h2 class="header center purple-text text-accent-4"><i class="material-icons">group</i></h2>
-<h5 class="center">Quant Platform</h5>
-
-<p class="light">An easy to use gateway through which investors can easily invest into the fund. All investments will be executed via smart contracts, which can be studied at our github repositories. All investments will be accepted in form of Ether or/and Bitcoin based transactions and an equivalent amount of Hedger tokens will be given to the investor. The Hedger tokens are an ERC-20 protocol based tokens which will hold a value roughly equal to the NAV of the fund</p>
-</div>
-</div>
-
-
-<div class="col s12 m6 black-text">
-<div class="icon-block">
-<h2 class="header center purple-text text-accent-4"><i class="material-icons">timeline</i></h2>
-<h5 class="center">Transparent Performance</h5>
-
-<p class="light">Data regarding the performance of the fund managers and bot's will be made public from time to time. The performance will be shown in the form of a graph based dashboard through which you can compare the performance of various portfolios, baskets and stratergies with the help of sleek visualizations. All data is loaded from the API of coinmarketcap and all updates are done automatically in realtime! So you can sit back and measure our performance</p>
-</div>
-</div>
- <div class="row center ">
-<a id="performanceButton" class="waves-effect purple accent-4 center waves-light btn">Performace Tab</a></div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<div id='platform' class="black">
-<br>
-<br>
-<div class="codrops-header">
-<h1 class="white-text">Platform<span class="teal-text text-darken-2">Discover our innovative platform</span></h1>
-
-		<img src="img/Dashboard.png" class="responsive-img center-allign" ></img>
-</div>
-
-
-<div class="row center ">
-	<a id="vtButton"   class="waves-effect teal darken-2 center waves-light btn">Video Tutorial</a></div>
-
-<br>
-<br>
-</div>
-
-
-
-<div class = "container">
-<div class="codrops-header">
-
-<!-- <h1>Blockchain Based Hedger<span class="teal-text text-darken-4">Presenting the future of hedge funds</span></h1> -->
-</div>
-
-
-
-
-
-
-<div class="row hoverable">
-<div class="col s12 m4 black-text">
-<div class="icon-block">
-<h2 class="header center purple-text text-accent-4"><i class="material-icons">dashboard</i></h2>
-<h5 class="center">Dashboard</h5>
-
-<p class="light">An easy to use dashboard to track your investments. </p>
-</div>
-</div>
-
-<div class="col s12 m4 black-text">
-<div class="icon-block">
-<h2 class="header center purple-text text-accent-4"><i class="material-icons">equalizer</i></h2>
-<h5 class="center">Quick Insights</h5>
-
-<p class="light">Get quick insights from our sleek graphs which will give you a quick summary of the state of your portfolio and other risk profiles at one glance </p>
-</div>
-</div>
-
-<div class="col s12 m4 black-text">
-<div class="icon-block">
-<h2 class="header center purple-text text-accent-4"><i class="material-icons">group_add</i></h2>
-<h5 class="center">Community</h5>
-
-<p class="light">Become a part of the community and join fellow investors and experts in all crypto-based discussions!</p>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="page-footer black">
-				<div class="container">
-					<div class="row">
-						<div class="col l6 s12">
-							<h5 class="white-text">An ATK-009 Product</h5>
-							<p class="grey-text text-lighten-4">ATK-009 is a subsidary of TSH Investments</p>
+							<!-- <h1>Blockchain Based Hedger<span class="teal-text text-darken-4">Presenting the future of hedge funds</span></h1> -->
 						</div>
-						<div class="col l4 offset-l2 s12">
-							<h5 class="white-text">Links</h5>
-							<ul>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-								<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-							</ul>
+
+
+
+
+
+
+						<div class="row hoverable">
+							<div class="col s12 m4 black-text">
+								<div class="icon-block">
+									<h2 class="header center purple-text text-accent-4"><i class="material-icons">dashboard</i></h2>
+									<h5 class="center">Dashboard</h5>
+
+									<p class="light">An easy to use dashboard to track your investments. </p>
+								</div>
+							</div>
+
+							<div class="col s12 m4 black-text">
+								<div class="icon-block">
+									<h2 class="header center purple-text text-accent-4"><i class="material-icons">equalizer</i></h2>
+									<h5 class="center">Quick Insights</h5>
+
+									<p class="light">Get quick insights from our sleek graphs which will give you a quick summary of the state of your portfolio and other risk profiles at one glance </p>
+								</div>
+							</div>
+
+							<div class="col s12 m4 black-text">
+								<div class="icon-block">
+									<h2 class="header center purple-text text-accent-4"><i class="material-icons">group_add</i></h2>
+									<h5 class="center">Community</h5>
+
+									<p class="light">Become a part of the community and join fellow investors and experts in all crypto-based discussions!</p>
+								</div>
+							</div>
 						</div>
 					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+					<footer class="page-footer black">
+						<div class="container">
+							<div class="row">
+								<div class="col l6 s12">
+									<h5 class="white-text">An ATK-009 Product</h5>
+									<p class="grey-text text-lighten-4">ATK-009 is a subsidary of TSH Investments</p>
+								</div>
+								<div class="col l4 offset-l2 s12">
+									<h5 class="white-text">Links</h5>
+									<ul>
+										<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+										<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+										<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+										<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="footer-copyright">
+							<div class="container">
+								© 2018 Copyright Text
+								<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+							</div>
+						</div>
+					</footer>
+
+
+
 				</div>
-				<div class="footer-copyright">
-					<div class="container">
-					© 2018 Copyright Text
-					<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-					</div>
-				</div>
-			</footer>
 
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
 
+				<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+				<script src="js/materialize.js"></script>
+				<script src="js/init.js"></script>
+				<script src="js/TweenLite.min.js"></script>
+				<script src="js/EasePack.min.js"></script>
+				<script src="js/rAF.js"></script>
+				<script src="js/demo-1.js"></script>
 
-</div>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
-
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="js/materialize.js"></script>
-		<script src="js/init.js"></script>
-		<script src="js/TweenLite.min.js"></script>
-		<script src="js/EasePack.min.js"></script>
-		<script src="js/rAF.js"></script>
-		<script src="js/demo-1.js"></script>
-
-		<script src="js/main.js"></script>
+				<script src="js/main.js"></script>
 			</body>
-</html>
+			</html>
