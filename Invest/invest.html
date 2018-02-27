@@ -46,23 +46,40 @@
 		</nav>
 	</div>
 
+<div>
+	<div class="container1 demo-1">
+		<div class="content">
+			<div id="large-header" class="large-header" >
 
-	<section class="content content--related">
-		<h1>Invest in Hedger || Relax and get amazing returns</h1>
-		<h4> Become a Part of the Hedger</h4>
-		<h4>Scroll down to Start Investing</h4>
-	</section>
+				<h3 class="center hoverable white-text">Invest in Hedger || Relax and get amazing returns</h1>
 
-	<div class="content-wrap">
-		<div class="content content--layout">
-			<h3 class="content__title">DEPOSIT</h3>
-			<p class="content__desc">Amount</p>
-			<p class="content__link">
-				<input type="number" id="amount"/>
-				<button id="rzp-button1">Pay</button>
-			</p>
+				<div class="row center main-form">
+
+					<div class="row center-allign " id='formId' style="top:200vh;">
+						<form class="col s12 ">
+
+							<div class="row " >
+								<div class="input-field inline" style="top:-2vh;" >
+									<i class="material-icons prefix">account_balance</i>
+
+									<input id="amount" type="text" class="validate">
+									<label for="first_name">Amount</label>
+								</div>
+
+							</div></form>
+						</div>
+						<div class="row center ">
+							<button id="rzp-button1" class="btn waves-effect waves-light" type="submit" name="action">Invest
+    				<i class="material-icons right">send</i>
+  						</button>
+						</div>
+						</div>
+
+					</div>
+
+			</div>
 		</div>
-	</div>
+
 
 	<footer class="page-footer black">
 		<div class="container">
@@ -94,6 +111,19 @@
 
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDURrjLF283phtDX0DZAhc2rPBwSgeJXVQ",
+    authDomain: "hedger-invest.firebaseapp.com",
+    databaseURL: "https://hedger-invest.firebaseio.com",
+    projectId: "hedger-invest",
+    storageBucket: "hedger-invest.appspot.com",
+    messagingSenderId: "726872548070"
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
