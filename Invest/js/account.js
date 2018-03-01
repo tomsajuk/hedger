@@ -11,6 +11,7 @@
     };
     firebase.initializeApp(config);
 
+
     //razorpay config variable
     var options = {
         "key": "rzp_test_PMjmTpjCj6YGxG",
@@ -55,10 +56,14 @@
     const btnLogoutM = document.getElementById("btnLogoutM");
     const btnSignUpM = document.getElementById("btnSignUpM");
     const formId = document.getElementById("formId");
+    const displayName = document.getElementById("displayName");
+    const balance = document.getElementById("balance");
+    var email = "";
 
     firebase.auth().onAuthStateChanged(firebaseUser =>{
         if(firebaseUser) {
             console.log(firebaseUser);
+            email = firebaseUser.email;
             btnLogout.classList.remove('hide');
             btnLogoutM.classList.remove('hide');
             btnLogin.classList.add('hide');
@@ -66,6 +71,14 @@
             btnSignUp.classList.add('hide');
             btnSignUpM.classList.add('hide');
             investForm.classList.remove('hide');
+            displayName.classList.remove('hide');
+            balance.classList.remove('hide');
+            displayName.innerText = email;
+            const dbRefBal = firebase.database().ref().child(email.split('@')[0]).child('balance');
+            dbRefBal.on('value', snap => {
+                balance.innerText = snap.val() + ' INR';
+                console.log(snap.val());
+            });
             Materialize.Toast.removeAll();
             Materialize.toast('Hi '+firebaseUser.displayName, 1000, 'rounded');
         } else {
@@ -78,6 +91,7 @@
             btnSignUp.classList.remove('hide');
             btnSignUpM.classList.remove('hide');
             investForm.classList.add('hide');
+            displayName.innerText = "";
             Materialize.Toast.removeAll();
             Materialize.toast('Login to Use Our Service', 5000, 'rounded');
         }

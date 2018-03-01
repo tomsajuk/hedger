@@ -27,6 +27,20 @@
     const btnLogin = document.getElementById("btnLogin");
     const btnSignUp = document.getElementById("btnSignUp");
 
+    function validate() {
+    	if(pass.value.length < 8)
+    		return 0;
+    	var numbers = /[0-9]/g;
+    	if(!pass.value.match(numbers))
+    		return 1;
+    	var uppercase = /[A-Z]/g;
+    	if(!pass.value.match(uppercase))
+    		return 2;
+    	var lowercase = /[a-z]/g;
+    	if(!pass.value.match(lowercase))
+    		return 3;
+    	return 5;
+    }
 
     btnLogin.addEventListener('click', e => {
         //validate
@@ -34,7 +48,10 @@
         const pass = txtPassword.value;
         const auth = firebase.auth();
         //Sign in
-        auth.signInWithEmailAndPassword(email,pass).catch(e => console.log(e.message));
+        auth.signInWithEmailAndPassword(email,pass).catch(e => {
+            console.log(e.message);
+            alert('Invalid LoginID or Password');
+        });
     });
 
     btnSignUp.addEventListener('click', e => {
@@ -43,7 +60,10 @@
         const pass = txtRegPassword.value;
         const auth = firebase.auth();
         //Sign in
-        auth.createUserWithEmailAndPassword(email,pass).catch(e => console.log(e.message));
+        auth.createUserWithEmailAndPassword(email,pass).catch(e => {
+            console.log(e.message);
+            alert('Check the fields. Invalid emailID');
+        });
     });
 
     //realtime auth state changeing
