@@ -11,6 +11,49 @@
     };
     firebase.initializeApp(config);
 
+    const btnLogin = document.getElementById("btnLogin");
+    const btnLogout = document.getElementById("btnLogout");
+    const btnSignUp = document.getElementById("btnSignUp");
+    const btnLoginM = document.getElementById("btnLoginM");
+    const btnLogoutM = document.getElementById("btnLogoutM");
+    const btnSignUpM = document.getElementById("btnSignUpM");
+    const formId = document.getElementById("formId");
+    const displayName = document.getElementById("displayName");
+    const balance = document.getElementById("balance");
+    var email = "";
+
+    function capturePay(res) {
+        console.log(res.razorpay_payment_id);
+        var payId = res.razorpay_payment_id;
+        var amount = document.getElementById("amount").value * 100;
+        var xhttp = new XMLHttpRequest();
+        var user = email.split('.')[0]+email.split('.')[1];
+
+    	xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            	var result = JSON.parse(this.responseText);
+                const dbRefBal = firebase.database().ref().child(user).child('balance');
+                dbRefBal.on('value', snap => {
+                    balance.innerText = snap.val() + ' INR';
+                    console.log(snap.val());
+                });
+                if(result.error) {
+                    alert('Not successful');
+                }
+                else {
+                    alert('Success');
+                    balance.innerText = amount/100 + ' INR';
+                    document.getElementById("amount").value = "";
+                }
+           }
+        };
+
+    	var url = "http://localhost:3000/process/";
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("user="+user+"&id="+payId+"&amount="+amount);
+        console.log('Sent');
+    }
 
     //razorpay config variable
     var options = {
@@ -20,7 +63,8 @@
         "description": "Purchase Description",
         "image": "/your_logo.png",
         "handler": function (response){
-            alert(response.razorpay_payment_id);
+            console.log(response.razorpay_payment_id);
+            capturePay(response);
         },
         "prefill": {
             "name": "Harshil Mathur",
@@ -33,7 +77,6 @@
             "color": "#F37254"
         }
     };
-
 
     document.getElementById('rzp-button1').onclick = function(e){
         var amount = document.getElementById("amount").value;
@@ -49,16 +92,7 @@
     }
 
 
-    const btnLogin = document.getElementById("btnLogin");
-    const btnLogout = document.getElementById("btnLogout");
-    const btnSignUp = document.getElementById("btnSignUp");
-    const btnLoginM = document.getElementById("btnLoginM");
-    const btnLogoutM = document.getElementById("btnLogoutM");
-    const btnSignUpM = document.getElementById("btnSignUpM");
-    const formId = document.getElementById("formId");
-    const displayName = document.getElementById("displayName");
-    const balance = document.getElementById("balance");
-    var email = "";
+
 
     firebase.auth().onAuthStateChanged(firebaseUser =>{
         if(firebaseUser) {
@@ -74,7 +108,7 @@
             displayName.classList.remove('hide');
             balance.classList.remove('hide');
             displayName.innerText = email;
-            const dbRefBal = firebase.database().ref().child(email.split('@')[0]).child('balance');
+            const dbRefBal = firebase.database().ref().child(email.split('.')[0]+email.split('.')[1]).child('balance');
             dbRefBal.on('value', snap => {
                 balance.innerText = snap.val() + ' INR';
                 console.log(snap.val());

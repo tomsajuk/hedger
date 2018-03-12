@@ -1,5 +1,5 @@
 
-(function() {
+
     var config = {
       apiKey: "AIzaSyDURrjLF283phtDX0DZAhc2rPBwSgeJXVQ",
       authDomain: "hedger-invest.firebaseapp.com",
@@ -26,18 +26,20 @@
     const txtRegPassword = document.getElementById("txtRegPassword");
     const btnLogin = document.getElementById("btnLogin");
     const btnSignUp = document.getElementById("btnSignUp");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
 
     function validate() {
-    	if(pass.value.length < 8)
+    	if(txtPassword.value.length < 6)
     		return 0;
     	var numbers = /[0-9]/g;
-    	if(!pass.value.match(numbers))
+    	if(!txtPassword.value.match(numbers))
     		return 1;
     	var uppercase = /[A-Z]/g;
-    	if(!pass.value.match(uppercase))
+    	if(!txtPassword.value.match(uppercase))
     		return 2;
     	var lowercase = /[a-z]/g;
-    	if(!pass.value.match(lowercase))
+    	if(!txtPassword.value.match(lowercase))
     		return 3;
     	return 5;
     }
@@ -48,11 +50,39 @@
         const pass = txtPassword.value;
         const auth = firebase.auth();
         //Sign in
-        auth.signInWithEmailAndPassword(email,pass).catch(e => {
-            console.log(e.message);
-            alert('Invalid LoginID or Password');
-        });
+
+            auth.signInWithEmailAndPassword(email,pass).catch(e => {
+                console.log(e.message);
+                alert('Invalid LoginID or Password');
+                location.reload();
+            });
+
     });
+
+    loginForm.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            btnLogin.click();
+        }
+    });
+
+    function enterData(email) {
+        var xhttp = new XMLHttpRequest();
+        var user = email.split('.')[0]+email.split('.')[1];
+
+    	xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            	var result = JSON.parse(this.responseText);
+                console.log('Done');
+           }
+        };
+
+    	var url = "http://localhost:3000/auth/";
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("user="+user);
+        console.log('Sent');
+    }
 
     btnSignUp.addEventListener('click', e => {
         //validate
@@ -60,13 +90,21 @@
         const pass = txtRegPassword.value;
         const auth = firebase.auth();
         //Sign in
-        auth.createUserWithEmailAndPassword(email,pass).catch(e => {
-            console.log(e.message);
-            alert('Check the fields. Invalid emailID');
-        });
+
+            auth.createUserWithEmailAndPassword(email,pass).catch(e => {
+                console.log(e.message);
+                alert('Check the fields. Invalid emailID');
+                location.reload();
+            });
+            enterData(email);
+    });
+    registerForm.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            btnSignUp.click();
+        }
     });
 
     //realtime auth state changeing
 
 //
-}());
