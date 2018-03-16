@@ -13,10 +13,8 @@
 
     const btnLogin = document.getElementById("btnLogin");
     const btnLogout = document.getElementById("btnLogout");
-    const btnSignUp = document.getElementById("btnSignUp");
     const btnLoginM = document.getElementById("btnLoginM");
     const btnLogoutM = document.getElementById("btnLogoutM");
-    const btnSignUpM = document.getElementById("btnSignUpM");
     const formId = document.getElementById("formId");
     const displayName = document.getElementById("displayName");
     const balance = document.getElementById("balance");
@@ -32,7 +30,7 @@
     	xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             	var result = JSON.parse(this.responseText);
-                const dbRefBal = firebase.database().ref().child(user).child('balance');
+                const dbRefBal = firebase.database().ref().child("users").child(user).child('balance');
                 dbRefBal.on('value', snap => {
                     balance.innerText = snap.val() + ' INR';
                     console.log(snap.val());
@@ -61,14 +59,14 @@
         "amount": "100", // 2000 paise = INR 20
         "name": "TSH Investments",
         "description": "Purchase Description",
-        "image": "/your_logo.png",
+        "image": "./logo.png",
         "handler": function (response){
             console.log(response.razorpay_payment_id);
             capturePay(response);
         },
         "prefill": {
-            "name": "Harshil Mathur",
-            "email": "harshil@razorpay.com"
+            "name": displayName,
+            "email": email
         },
         "notes": {
             "address": "Hello World"
@@ -102,13 +100,11 @@
             btnLogoutM.classList.remove('hide');
             btnLogin.classList.add('hide');
             btnLoginM.classList.add('hide');
-            btnSignUp.classList.add('hide');
-            btnSignUpM.classList.add('hide');
             investForm.classList.remove('hide');
             displayName.classList.remove('hide');
             balance.classList.remove('hide');
             displayName.innerText = email;
-            const dbRefBal = firebase.database().ref().child(email.split('.')[0]+email.split('.')[1]).child('balance');
+            const dbRefBal = firebase.database().ref().child("users").child(email.split('.')[0]+email.split('.')[1]).child('balance');
             dbRefBal.on('value', snap => {
                 balance.innerText = snap.val() + ' INR';
                 console.log(snap.val());
@@ -122,8 +118,6 @@
             btnLogoutM.classList.add('hide');
             btnLogin.classList.remove('hide');
             btnLoginM.classList.remove('hide');
-            btnSignUp.classList.remove('hide');
-            btnSignUpM.classList.remove('hide');
             investForm.classList.add('hide');
             displayName.innerText = "";
             Materialize.Toast.removeAll();

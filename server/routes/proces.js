@@ -15,7 +15,7 @@ router.post('/',function(req, res, next) {
 	console.log(url+payment_id);
 
     var db = admin.database();
-	var ref = db.ref().child(req.body.user);
+	var ref = db.ref().child("users").child(req.body.user);
 
 	ref.once("value", function(snapshot) {
 	  console.log(snapshot.val().balance);

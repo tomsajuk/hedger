@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+	<title>Hedger</title>
+	<meta name="author" content="Anirudh Murali , Thomas Saju Kosy" />
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body style="padding-top: 90px;font-family: 'Roboto';">
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-6 offset-3">
+			<div class="panel panel-login" id="resetPass">
+				<div class="row">
+					<div class="col-xl-6">
+						<div id="login-form-link text-center">Reset Password</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="email" id="txtEmail" tabindex="1" class="form-control" placeholder="Email Address" value="">
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-6">
+							<input type="submit" name="submit" id="btn" tabindex="2" class="form-control btn btn-login" value="Submit">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<script type="text/javascript">
+(function() {
+var config = {
+  apiKey: "AIzaSyDURrjLF283phtDX0DZAhc2rPBwSgeJXVQ",
+  authDomain: "hedger-invest.firebaseapp.com",
+  projectId: "hedger-invest",
+  messagingSenderId: "726872548070"
+};
+firebase.initializeApp(config);
+console.log("hi");
+
+var txtEmail = document.getElementById("txtEmail");
+var btn = document.getElementById("btn");
+var resetPass = document.getElementById("resetPass");
+
+txtEmail.addEventListener("keyup", e => {
+	if(!txtEmail.value.match(/@/g))
+		txtEmail.setAttribute("style","border-color:red;");
+	else
+		txtEmail.setAttribute("style","border-color:none;");
+});
+
+btn.addEventListener('click', e => {
+	var emailAddress = txtEmail.value;
+	firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
+	  alert("Check your Mail");
+	}).catch(function(error) {
+	  alert("Enter correct EmailID");
+	  txtEmail.setAttribute("style","border-color:red;");
+	});
+});
+
+resetPass.addEventListener("keyup", function(event) {
+	event.preventDefault();
+	if (event.keyCode === 13) {
+		btn.click();
+	}
+});
+
+}());
+
+</script>
+</body>
+</html>

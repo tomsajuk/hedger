@@ -54,16 +54,37 @@ p {
 	-webkit-transform: translate3d(-50%,-50%,0);
 	transform: translate3d(-50%,-50%,0);
 }
-.main-form {
-	position: absolute;
-	margin: 0;
-	padding: 0;
+.containerBox {
+	position: relative;
+	width: fit-content;
+	border: 1px solid white;
+	margin: 2px;
+	padding: 10px;
 	color: #f9f1e9;
 	text-align: center;
-	top: 60%;
-	left: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
+	/*-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);*/
+}
+
+#BuySellForm {
+
+}
+
+#investForm {
+
+}
+
+#marketTable {
+	border-collapse: collapse;
+	text-align: left;
+	width: 100vw;
+	max-width: 400px;
+}
+tr:nth-child(even) {background-color: #3E3D3D;}
+tr:hover {background-color: #787777;}
+
+.marketActive {
+	background-color: #787777;
 }
 
 .demo-1 .main-title,
