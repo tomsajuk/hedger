@@ -15,9 +15,10 @@
 	<meta name="keywords" content="blockchain, hedge fund, investing" />
 	<meta name="author" content="Anirudh Murali , Thomas Saju Kosy" />
 	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/component1.css" />
 	<link rel="stylesheet" type="text/css" href="css/normalize1.css" />
 	<link rel="stylesheet" type="text/css" href="css/demo1.css" />
-	<link rel="stylesheet" type="text/css" href="css/component1.css" />
+
 	<link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
 	<!--[if IE]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -61,14 +62,14 @@
 
 			<div class="content">
 
-				<div id="large-header" class="large-header" style="height:100vh">
+				<div id="large-header" class="large-header" style="min-height:100vh">
 
 					<h3 class="center white-text">Invest in Hedger </h3>
 					<h5 class="center white-text"> Relax and get amazing returns</h5>
 					<div class="row " style="display:block;">
 						<!--graph of market-->
 						<div class="containerBox col">
-							<div class="row" style="top:200vh;margin:0;">
+							<div class="row" style="height:300px;width:500px;top:200vh;margin:0;">
 								<div class="left white-text" >PRICE CHART</div>
 								<div id="chart">
 
@@ -79,15 +80,15 @@
 						<!--Market Box-->
 						<div class="containerBox col">
 
-							<div class="row" style="top:200vh;margin:0;overflow-y:auto;">
+							<div class="row" style="height:300px;top:200vh;margin:0;overflow-y:auto;">
 								<div class="left white-text" >MARKET</div>
 								<div>
-									<table id="marketTable">
-										<thead><tr>
-											<td style="width:50%;">Name</td>
-											<td>Buy Price</td>
-											<td>Sell Price</td>
-										</tr></thead>
+									<table class="marketTab" id="marketTable">
+										<tr>
+											<th style="width:50%;">Name</th>
+											<th>Buy Price</th>
+											<th>Sell Price</th>
+										</tr>
 
 									</table>
 								</div>
@@ -96,19 +97,38 @@
 					</div>
 					<div  class="row " style="display:block;">
 
+						<!--Open trade box-->
+						<div class="containerBox col">
+
+							<div class="row" style="height:400px;top:200vh;margin:0;overflow-y:auto;">
+								<div class="left white-text" >TRADE</div>
+								<div>
+									<table class="marketTab" id="tradeTable">
+										<tr>
+											<th style="width:50%;">Name</th>
+											<th>Buy Price</th>
+											<th>Sell Price</th>
+										</tr>
+
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div  class="col" style="display:block;">
 						<!--Buy and sell box-->
-						<div class="containerBox col" id="BuySellForm">
+						<div class="containerBox row hide" id="BuySellForm">
 
 							<div class="row center-align " style="top:200vh;margin:0;">
 								<div class="left white-text" style="padding-top:1vh;">TRADE</div>
 								<form class="col s12">
 									<div class="row " >
 										<div class="input-field inline" style="top:-1vh;" >
-											<input id="price" type="number" class="validate">
+											<input id="price" type="number" step="0.01" class="validate">
 											<label for="price">Price</label>
 										</div>
 										<div class="input-field inline" style="top:-1vh;" >
-											<input id="volume" type="number" class="validate">
+											<input id="volume" type="number" step="0.01" class="validate">
 											<label for="vol">Volume</label>
 										</div>
 									</div>
@@ -126,7 +146,7 @@
 						</div>
 
 							<!--Invest box-->
-							<div class="col containerBox" id="investForm">
+							<div class="row containerBox hide" id="investForm">
 
 								<div class="row center-align " style="top:200vh; margin:0;">
 									<form class="col s12">
@@ -148,6 +168,7 @@
 										</div>
 									</div>
 								</div>
+							</div>
 							</div>
 						</div>
 
@@ -188,13 +209,11 @@
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
 			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 			<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-			<script src="js/materialize.js"></script>
+			<script src="js/materialize.min.js"></script>
 			<script src="js/account.js"></script>
-			<script src="js/init.js"></script>
-			<script src="js/TweenLite.min.js"></script>
-			<script src="js/EasePack.min.js"></script>
-			<script src="js/rAF.js"></script>
-			<script src="js/main.js"></script>
 			<script src="js/market.js"></script>
+			<script src="js/init.js"></script>
+			<script src="js/main.js"></script>
+
 		</body>
 		</html>

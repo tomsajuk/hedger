@@ -20,6 +20,7 @@
     const balance = document.getElementById("balance");
     var email = "";
 
+
     function capturePay(res) {
         console.log(res.razorpay_payment_id);
         var payId = res.razorpay_payment_id;
@@ -103,9 +104,11 @@
             investForm.classList.remove('hide');
             displayName.classList.remove('hide');
             balance.classList.remove('hide');
+            document.getElementById("BuySellForm").classList.remove('hide');
             displayName.innerText = email;
             const dbRefBal = firebase.database().ref().child("users").child(email.split('.')[0]+email.split('.')[1]).child('balance');
             dbRefBal.on('value', snap => {
+
                 balance.innerText = snap.val() + ' INR';
                 console.log(snap.val());
             });
@@ -119,6 +122,7 @@
             btnLogin.classList.remove('hide');
             btnLoginM.classList.remove('hide');
             investForm.classList.add('hide');
+            document.getElementById("BuySellForm").classList.add('hide');
             displayName.innerText = "";
             Materialize.Toast.removeAll();
             Materialize.toast('Login to Use Our Service', 5000, 'rounded');

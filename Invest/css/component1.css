@@ -66,26 +66,23 @@ p {
 	transform: translate3d(-50%,-50%,0);*/
 }
 
-#BuySellForm {
-
-}
-
-#investForm {
-
-}
-
-#marketTable {
+.marketTab {
 	border-collapse: collapse;
 	text-align: left;
 	width: 100vw;
 	max-width: 400px;
+
 }
+
 tr:nth-child(even) {background-color: #3E3D3D;}
 tr:hover {background-color: #787777;}
-
-.marketActive {
-	background-color: #787777;
+th {padding:2px;}
+td {
+	height: 3px;
+	padding: 2px;
 }
+
+
 
 .demo-1 .main-title,
 .demo-3 .main-title {
