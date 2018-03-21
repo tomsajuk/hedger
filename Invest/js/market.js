@@ -2,6 +2,7 @@
 var marketTable = document.getElementById("marketTable");
 var count;
 var item = "",sellPrice = 0, buyPrice = 0;
+var nodeUrl = "https://hedger.herokuapp.com";
 
 firebase.database().ref('/market').once('value', snap => {
     console.log(snap.val());
@@ -62,7 +63,7 @@ buybtn.addEventListener('click', e=> {
        }
     };
 
-    var url = "http://localhost:3000/trade/buy/";
+    var url = nodeUrl + "/trade/buy/";
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("user="+user+"&item="+item+"&price="+amount+"&volume="+vol);
@@ -85,7 +86,7 @@ sellbtn.addEventListener('click', e=> {
        }
     };
 
-    var url = "http://localhost:3000/trade/sell/";
+    var url = nodeUrl + "/trade/sell/";
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("user="+user+"&item="+item+"&price="+amount+"&volume="+vol);

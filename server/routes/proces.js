@@ -3,8 +3,8 @@ var router = express.Router();
 var request = require('request');
 var admin = require('../firebaseAdmin');
 
-var KEY_ID = 'rzp_test_PMjmTpjCj6YGxG';//process.env.KEY_ID;
-var SECRET_KEY = 'EcrD1Gxo5VWD5Wn0BNl13Rxy';//process.env.SECRET_ID;
+var KEY_ID = process.env.KEY_ID;
+var SECRET_KEY = process.env.SECRET_ID;
 var url = 'https://'+KEY_ID+':'+SECRET_KEY+'@api.razorpay.com/v1/payments/';
 
 router.post('/',function(req, res, next) {

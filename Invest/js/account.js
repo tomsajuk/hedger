@@ -1,4 +1,5 @@
 (function() {
+    var nodeUrl = "https://hedger.herokuapp.com";
 
     //Firebase config variable
     var config = {
@@ -47,7 +48,7 @@
            }
         };
 
-    	var url = "http://localhost:3000/process/";
+    	var url = nodeUrl+"/process/";
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("user="+user+"&id="+payId+"&amount="+amount);

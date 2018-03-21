@@ -7,6 +7,7 @@ var trades = db.ref('/market/trade');
 var openTrades = db.ref('/market/openTrade');
 var Mitem = 'steel';
 var openTradeVisit = false;
+
 openTrades.on('value', snap => {
     if(!openTradeVisit){
     openTradeVisit = true;
