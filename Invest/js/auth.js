@@ -1,4 +1,4 @@
-
+var nodeUrl = "https://hedger.herokuapp.com";
 
     var config = {
       apiKey: "AIzaSyDURrjLF283phtDX0DZAhc2rPBwSgeJXVQ",
@@ -106,7 +106,7 @@
            }
         };
 
-    	var url = "http://localhost:3000/auth/";
+    	var url = nodeUrl + "/auth/";
         xhttp.open("POST", url, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("user="+user+"&wallet="+wallet);
