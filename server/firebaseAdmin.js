@@ -1,6 +1,6 @@
 var admin = require("firebase-admin");
 //var serviceAccount = require("./serviceAccountKey.json");
-var PRIVATE_KEY = process.enc.FIREBASE_KEY;
+var PRIVATE_KEY = process.env.FIREBASE_KEY;
 admin.initializeApp({
   credential: admin.credential.cert({
     projectId: process.env.PROJECT_ID,
