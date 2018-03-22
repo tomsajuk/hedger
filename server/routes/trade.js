@@ -47,7 +47,7 @@ openTrades.on('value', snap => {
                         users.update(userObj);
                     });
                 }else if(buy.volume < sell.volume) {
-                    sell.volume = sell.volume-buy.volume;
+                    sell.volume = (sell.volume-buy.volume).toFixed(2);
                     console.log(sell);
                     openTrades.child(Mitem).child('sell').child(sellx).set(sell);
                     console.log('done1');
@@ -63,7 +63,7 @@ openTrades.on('value', snap => {
                     });
                 } else if(buy.volume > sell.volume) {
 
-                    buy.volume = buy.volume-sell.volume;
+                    buy.volume = (buy.volume-sell.volume).toFixed(2);
                     console.log(buy);
                     openTrades.child(Mitem).child('sell').child(sellx).set({});
                     console.log('done2');
@@ -119,6 +119,11 @@ router.post('/buy/', function(req, res, next) {
     var balance ;
     users.child(user).child('balance').once('value', snap=>{
         balance=parseFloat(snap.val());
+        balance = (balance - amount).toFixed(2);
+        if(balance < 0) {
+            res.send('You don\'t have enough Credit.')
+            return;
+        }
         var obj = {};
         obj[Date.now()] = {
             'price': price,
@@ -126,21 +131,13 @@ router.post('/buy/', function(req, res, next) {
             'user':user
         };
         var userUp = {};
-        userUp[user] = {'balance':balance-amount};
+        userUp[user] = {'balance':parseFloat(balance)};
         console.log(balance);
         users.update(userUp);
         openTrades.child(item).child('buy').update(obj);
-    })
-
-    trades.child(item).child('buyPrice').once('value', snap => {
-        console.log(snap.val());
-        var buyPrice = parseFloat(snap.val());
-        if(buyPrice < price) {
-            var edii = {'buyPrice':price};
-            trades.child(item).update(edii);
-        }
+        res.send('Trade for '+volume+" of "+item+" uploaded.");
     });
-    res.send('Trade for '+volume+" of "+item+" uploaded.");
+
 });
 
 router.post('/sell/', function(req, res, next) {
@@ -157,14 +154,7 @@ router.post('/sell/', function(req, res, next) {
         'user':user
     };
     openTrades.child(item).child('sell').update(obj);
-    trades.child(item).child('sellPrice').once('value', snap => {
-        console.log(snap.val());
-        var sellPrice = parseFloat(snap.val());
-        if(sellPrice > price) {
-            var edii = {'sellPrice':price};
-            trades.child(item).update(edii);
-        }
-    });
+    
     res.send('Trade for '+volume+" of "+item+" uploaded.");
 });
 

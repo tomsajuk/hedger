@@ -71,13 +71,18 @@ p {
 	text-align: left;
 	width: 100vw;
 	max-width: 400px;
-
+	position: relative
 }
 
-tr:nth-child(even) {background-color: #3E3D3D;}
-tr:hover {background-color: #787777;}
-th {padding:2px;}
 td {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.marketTab tr:nth-child(even) {background-color: #3E3D3D;}
+.marketTab tr:hover {background-color: #787777;}
+.marketTab th {padding:2px;}
+.marketTab td {
 	height: 3px;
 	padding: 2px;
 }

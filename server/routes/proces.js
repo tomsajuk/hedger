@@ -11,7 +11,7 @@ router.post('/',function(req, res, next) {
 	console.log(req.body);
 	var payment_id = req.body.id;
 	var quantity = req.body.amount;
-	var preAmount = parseInt(quantity)/100;
+	var preAmount = parseFloat(quantity)/100;
 	console.log(url+payment_id);
 
     var db = admin.database();
@@ -19,7 +19,7 @@ router.post('/',function(req, res, next) {
 
 	ref.once("value", function(snapshot) {
 	  console.log(snapshot.val().balance);
-	  preAmount += parseInt(snapshot.val().balance);
+	  preAmount += parseFloat(snapshot.val().balance);
 	  request({
 	  		  method: 'POST',
 	  		  url: url+payment_id+'/capture',

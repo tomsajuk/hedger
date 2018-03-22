@@ -20,6 +20,7 @@ firebase.database().ref('/market').once('value', snap => {
         Mbuy.innerText = obj[i].buyPrice;
         Msell.innerText = obj[i].sellPrice;
     }
+    openTrade(row);
 });
 
 firebase.database().ref('/market/trade').on("child_changed", snap => {
@@ -44,6 +45,7 @@ function openTrade(val) {
     item = obj[0].innerHTML;
     buyPrice = parseFloat(obj[1].innerHTML);
     sellPrice = parseFloat(obj[2].innerHTML);
+    tradeTable();
 }
 
 buybtn.addEventListener('click', e=> {
@@ -95,9 +97,51 @@ sellbtn.addEventListener('click', e=> {
 
 firebase.auth().onAuthStateChanged(firebaseUser =>{
     if(firebaseUser) {
-        console.log(firebaseUser);
         email = firebaseUser.email;
-    } else {
-        console.log('Not Logged in');
     }
 });
+
+//Trade Table
+function tradeTable() {
+    var buyTable = document.getElementById('buyTable');
+    var sellTable = document.getElementById('sellTable');
+
+
+    firebase.database().ref('/market/openTrade/'+item+'/buy').orderByChild('price').limitToLast(10).on('value', snap => {
+        console.log(snap.val());
+        buyTable.innerHTML = "";
+        var  row, Mbuy, Mvol;
+        var header = buyTable.createTHead();
+        row = header.insertRow(0);
+        row.insertCell(0).innerText = "Volume";
+        row.insertCell(1).innerText = "Price/Unit";
+        var body = buyTable.createTBody();
+        snap.forEach(function(data) {
+            row = body.insertRow(0);
+            Mvol = row.insertCell(0);
+            Mbuy = row.insertCell(1);
+            Mbuy.innerText = data.val().price;
+            Mvol.innerText = data.val().volume;
+        });
+    });
+    firebase.database().ref('/market/openTrade/'+item+'/sell').orderByChild('price').limitToFirst(10).on('value', snap => {
+        console.log(snap.val());
+        sellTable.innerHTML = "";
+        var obj = snap.val();
+        var  row, Msell, Mvol;
+        var header = sellTable.createTHead();
+        row = header.insertRow(0);
+        row.insertCell(0).innerText = "Volume";
+        row.insertCell(1).innerText = "Price/Unit";
+        var body = sellTable.createTBody();
+        var i = 0;
+        snap.forEach(function(data){
+            row = body.insertRow(i);
+            Mvol = row.insertCell(0);
+            Msell = row.insertCell(1);
+            Msell.innerText = data.val().price;
+            Mvol.innerText = data.val().volume;
+            i++;
+        });
+    });
+};

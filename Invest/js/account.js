@@ -32,18 +32,12 @@
     	xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             	var result = JSON.parse(this.responseText);
-                const dbRefBal = firebase.database().ref().child("users").child(user).child('balance');
-                dbRefBal.on('value', snap => {
-                    balance.innerText = snap.val() + ' INR';
-                    console.log(snap.val());
-                });
+
                 if(result.error) {
                     alert('Not successful');
                 }
                 else {
                     alert('Success');
-                    balance.innerText = amount/100 + ' INR';
-                    document.getElementById("amount").value = "";
                 }
            }
         };
@@ -110,7 +104,7 @@
             const dbRefBal = firebase.database().ref().child("users").child(email.split('.')[0]+email.split('.')[1]).child('balance');
             dbRefBal.on('value', snap => {
 
-                balance.innerText = snap.val() + ' INR';
+                balance.innerText = snap.val() + ' TNR';
                 console.log(snap.val());
             });
             Materialize.Toast.removeAll();
