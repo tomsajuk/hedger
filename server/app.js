@@ -11,6 +11,7 @@ var admin = require('./firebaseAdmin');
 var proces = require('./routes/proces');
 var auth = require('./routes/auth');
 var trade = require('./routes/trade');
+var schedule = require('./routes/schedule');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/process', proces);
 app.use('/auth', auth);
 app.use('/trade', trade);
+app.use('/schedule',schedule);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

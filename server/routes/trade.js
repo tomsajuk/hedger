@@ -78,8 +78,8 @@ openTrades.on('value', snap => {
                         users.update(userObj);
                     });
                 }
-
-//put less than vol and change buy & sell price in trade database
+                var lastP = {lastPrice:sell.price};
+                trades.child(Mitem).update(lastP);
             }
         });
 
@@ -154,7 +154,7 @@ router.post('/sell/', function(req, res, next) {
         'user':user
     };
     openTrades.child(item).child('sell').update(obj);
-    
+
     res.send('Trade for '+volume+" of "+item+" uploaded.");
 });
 

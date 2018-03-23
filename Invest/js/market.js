@@ -156,8 +156,9 @@ function chartPre() {
             text: item
         },
         axisX: {
-            interval: 10,
-            intervalType: 'day'
+            //interval: 24,
+            intervalType: 'hour',
+            valueFormatString: "DD-MMM"
         },
         axisY: {
             includeZero: false
@@ -169,26 +170,21 @@ function chartPre() {
         theme: "dark2"
 
     });
-    var xVal = -58;
-    var yVal = parseInt(buyPrice);
-    var updateInterval = 100000;
-    var dataLength = 50; // number of dataPoints visible at any point
-    var updateChart = function (count) {
-        count = count || 1;
 
-        for (var j = 0; j < count; j++) {
-            yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+    var xVal, yVal;
+    var dataLength = 24;
+    firebase.database().ref('/chart/'+item).on('value', snap =>{
+        snap.forEach(function(data) {
+            xVal = new Date(parseInt(data.key));
+            yVal = data.val();
             dps.push({
-                x: new Date(2018,03,xVal),
+                x: xVal,
                 y: yVal
             });
-            xVal++;
-        }
+        })
         if (dps.length > dataLength) {
             dps.shift();
         }
         chart.render();
-    };
-    updateChart(dataLength);
-    setInterval(function(){updateChart()}, updateInterval);
+    });
 }
