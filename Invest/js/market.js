@@ -33,19 +33,19 @@ firebase.database().ref('/market/trade').on("child_changed", snap => {
 
 var buybtn = document.getElementById("buy-order");
 var sellbtn = document.getElementById("sell-order");
-var chart = document.getElementById("chart");
 var price = document.getElementById("price");
 var volume = document.getElementById("volume");
 var email = "";
 
 function openTrade(val) {
     var obj = val.childNodes;
-    chart.innerText = obj[0].innerHTML;
+
     console.log(obj[0].innerHTML);
     item = obj[0].innerHTML;
     buyPrice = parseFloat(obj[1].innerHTML);
     sellPrice = parseFloat(obj[2].innerHTML);
     tradeTable();
+    chartPre();
 }
 
 buybtn.addEventListener('click', e=> {
@@ -62,7 +62,7 @@ buybtn.addEventListener('click', e=> {
             price.value = null;
             volume.value = null;
             Materialize.toast(result, 1000, 'rounded');
-       }
+        }
     };
 
     var url = nodeUrl + "/trade/buy/";
@@ -85,7 +85,7 @@ sellbtn.addEventListener('click', e=> {
             Materialize.toast(result, 1000, 'rounded');
             price.value = null;
             volume.value = null;
-       }
+        }
     };
 
     var url = nodeUrl + "/trade/sell/";
@@ -145,3 +145,50 @@ function tradeTable() {
         });
     });
 };
+
+//price chart
+
+function chartPre() {
+
+    var dps = []; // dataPoints
+    var chart = new CanvasJS.Chart("chartContainer", {
+        title :{
+            text: item
+        },
+        axisX: {
+            interval: 10,
+            intervalType: 'day'
+        },
+        axisY: {
+            includeZero: false
+        },
+        data: [{
+            type: "line",
+            dataPoints: dps
+        }],
+        theme: "dark2"
+
+    });
+    var xVal = -58;
+    var yVal = parseInt(buyPrice);
+    var updateInterval = 100000;
+    var dataLength = 50; // number of dataPoints visible at any point
+    var updateChart = function (count) {
+        count = count || 1;
+
+        for (var j = 0; j < count; j++) {
+            yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+            dps.push({
+                x: new Date(2018,03,xVal),
+                y: yVal
+            });
+            xVal++;
+        }
+        if (dps.length > dataLength) {
+            dps.shift();
+        }
+        chart.render();
+    };
+    updateChart(dataLength);
+    setInterval(function(){updateChart()}, updateInterval);
+}
