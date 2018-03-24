@@ -35,6 +35,7 @@ var buybtn = document.getElementById("buy-order");
 var sellbtn = document.getElementById("sell-order");
 var price = document.getElementById("price");
 var volume = document.getElementById("volume");
+var itemBalance = document.getElementById("itemBal");
 var email = "";
 
 function openTrade(val) {
@@ -46,7 +47,20 @@ function openTrade(val) {
     sellPrice = parseFloat(obj[2].innerHTML);
     tradeTable();
     chartPre();
+    itemBal();
 }
+
+function itemBal() {
+    if(email == null)
+        return;
+    var user = email.split('.')[0]+email.split('.')[1];
+    firebase.database().ref('/users').child(user).on('value', snap => {
+        itemBalance.innerText = item+" Bal = " + snap.val()[item];
+    })
+}
+//Dialog Box
+//var elem = document.querySelector('.modal');
+//var instance = M.Modal.init(elem, onOpenStart=);
 
 buybtn.addEventListener('click', e=> {
     console.log(buyPrice);
@@ -98,7 +112,8 @@ sellbtn.addEventListener('click', e=> {
 firebase.auth().onAuthStateChanged(firebaseUser =>{
     if(firebaseUser) {
         email = firebaseUser.email;
-    }
+        itemBal();
+    } else {email = null;}
 });
 
 //Trade Table
